@@ -27,7 +27,7 @@ namespace DatingApp.API.Controllers
         //     var values = _context.Values.ToList();
         //     return Ok(values);
         // }
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
