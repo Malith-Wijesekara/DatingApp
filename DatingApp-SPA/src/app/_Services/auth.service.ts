@@ -12,7 +12,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(model: any){
+  login(model: any) {
     return this.http.post(this.baseUrl + 'login', model)
     .pipe(
       map((response: any) => {
@@ -20,9 +20,16 @@ export class AuthService {
         console.log(user);
         if (user) {
           localStorage.setItem('token', user.token);
+          localStorage.setItem('role', JSON.parse(window.atob(user.token.split('.')[1])).role);
         }
       })
     );
+  }
+
+  isAnAdmin() {
+    if (localStorage.getItem('role') === 'Admin') {
+      return true;
+    }
   }
 
   roleMatch(allowedRoles): boolean {
