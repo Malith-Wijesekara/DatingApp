@@ -12,6 +12,8 @@ import { RegisterComponent } from './register/register.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessageComponent } from './message/message.component';
 import { MemberComponent } from './member/member.component';
+import { AdminComponent } from './admin/admin.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 @NgModule({
    declarations: [
@@ -21,7 +23,9 @@ import { MemberComponent } from './member/member.component';
       RegisterComponent,
       ListsComponent,
       MessageComponent,
-      MemberComponent
+      MemberComponent,
+      AdminComponent,
+      ForbiddenComponent
    ],
    imports: [
       BrowserModule,

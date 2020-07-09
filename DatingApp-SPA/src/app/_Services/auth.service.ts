@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
+
   baseUrl = 'http://localhost:5000/api/auth/';
 
   constructor(private http: HttpClient) { }
@@ -22,6 +23,22 @@ export class AuthService {
         }
       })
     );
+  }
+
+  roleMatch(allowedRoles): boolean {
+
+    let isMatch = false;
+    const payLoad = JSON.parse(window.atob(localStorage.getItem('token').split('.')[1]));
+    const userRole = payLoad.role;
+
+    allowedRoles.forEach(element => {
+
+      if (userRole === element) {
+        isMatch = true;
+        return false;
+      }
+    });
+    return isMatch;
   }
 
   register(model: any) {
