@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DefaultSerializer } from 'v8';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +23,18 @@ export class HomeComponent implements OnInit {
   }
 
   getValues() {
-    this.http.get('http://localhost:5000/api/values').subscribe(response => {
+
+    const token = localStorage.getItem('token');
+    let httpOptions = null;
+    if (token) {
+      httpOptions = {
+        headers: new HttpHeaders({
+          Authorization:  'Bearer ' + token
+        })
+      };
+    }
+
+    this.http.get('http://localhost:5000/api/values', httpOptions).subscribe(response => {
       this.values = response;
     }, error => {
         console.log(error);
