@@ -1,3 +1,4 @@
+import { AlertifyService } from './_Services/alertify.service';
 import { appRoutes } from './routes';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthService } from './_Services/auth.service';
@@ -12,6 +13,9 @@ import { RegisterComponent } from './register/register.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessageComponent } from './message/message.component';
 import { MemberComponent } from './member/member.component';
+import { Errorintercepter } from './_Services/error.intercepter';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
    declarations: [
@@ -27,10 +31,14 @@ import { MemberComponent } from './member/member.component';
       BrowserModule,
       HttpClientModule,
       FormsModule,
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes),
+      BrowserAnimationsModule,
+      BsDropdownModule.forRoot(),
    ],
    providers: [
-      AuthService
+      AuthService,
+      Errorintercepter,
+      AlertifyService
    ],
    bootstrap: [
       AppComponent
