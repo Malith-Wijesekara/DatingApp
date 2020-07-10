@@ -42,7 +42,8 @@ namespace DatingApp.API.Controllers
 
             var userToCreate = new User
             {
-                Username = userForRegisterDto.Username
+                Username = userForRegisterDto.Username,
+                Role = userForRegisterDto.Role
             };
 
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
