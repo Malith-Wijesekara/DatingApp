@@ -12,10 +12,21 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessageComponent } from './message/message.component';
-import { MemberComponent } from './member/member.component';
+import { MemberComponent } from './members/member/member.component';
 import { Errorintercepter } from './_Services/error.intercepter';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserService } from './_Services/user.service';
+import { AuthGuard } from './_guards/auth.guard';
+import { MemberCardComponent } from './members/member-card/member-card.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
+
+export function tokenGetter() {
+   return localStorage.getItem('token');
+}
+
 
 @NgModule({
    declarations: [
@@ -25,7 +36,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       RegisterComponent,
       ListsComponent,
       MessageComponent,
-      MemberComponent
+      MemberComponent,
+      MemberCardComponent,
+      MemberDetailComponent
    ],
    imports: [
       BrowserModule,
@@ -34,11 +47,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       RouterModule.forRoot(appRoutes),
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
+      JwtModule.forRoot({
+         config: {
+            tokenGetter: tokenGetter,
+            allowedDomains: ['localhost:5000'],
+            disallowedRoutes: ['localhost:5000/api/auth']
+         }
+      })
    ],
    providers: [
       AuthService,
+      UserService,
+      AuthGuard,
       Errorintercepter,
-      AlertifyService
+      AlertifyService,
+      MemberDetailResolver
    ],
    bootstrap: [
       AppComponent
