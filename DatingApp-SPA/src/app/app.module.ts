@@ -22,6 +22,11 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { JwtModule } from '@auth0/angular-jwt';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
+import { MemberListResolver } from './_resolvers/member-list.resolver';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import {TabsModule} from 'ngx-bootstrap/tabs';
+import { PreventUnsavedGuard } from './_guards/prevent-unsaved.guard';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -38,7 +43,8 @@ export function tokenGetter() {
       MessageComponent,
       MemberComponent,
       MemberCardComponent,
-      MemberDetailComponent
+      MemberDetailComponent,
+      MemberEditComponent
    ],
    imports: [
       BrowserModule,
@@ -47,6 +53,7 @@ export function tokenGetter() {
       RouterModule.forRoot(appRoutes),
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
+      TabsModule.forRoot(),
       JwtModule.forRoot({
          config: {
             tokenGetter: tokenGetter,
@@ -61,7 +68,10 @@ export function tokenGetter() {
       AuthGuard,
       Errorintercepter,
       AlertifyService,
-      MemberDetailResolver
+      MemberDetailResolver,
+      MemberListResolver,
+      MemberEditResolver,
+      PreventUnsavedGuard
    ],
    bootstrap: [
       AppComponent

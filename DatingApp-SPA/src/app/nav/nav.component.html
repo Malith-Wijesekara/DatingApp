@@ -28,7 +28,7 @@
       Welcome {{ authService.decodeToken?.unique_name | titlecase }}!
     </a>
       <ul id="dropdown-basic mt-3" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
-        <li role="menuitem"><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>        
+        <li role="menuitem"><a class="dropdown-item" [routerLink]="['/edit']" ><i class="fa fa-user"></i> Profile</a></li>        
         <li class="divider dropdown-divider"></li> 
         <li role="menuitem"><a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a></li>
       </ul>      
