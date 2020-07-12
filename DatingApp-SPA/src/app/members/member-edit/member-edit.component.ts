@@ -30,8 +30,7 @@ export class MemberEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.user = data.user;
-
+      this.user = data.user;      
     });
   }
 
@@ -42,7 +41,7 @@ export class MemberEditComponent implements OnInit {
       this.alertifyService.success('Profile Updated!');
     }, error => {
       this.alertifyService.error(error);
-    });
+    })  
     this.editForm.reset(this.user);
 
   }

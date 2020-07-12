@@ -46,6 +46,7 @@ namespace DatingApp.API
             services.AddScoped<IAuthRepository, AuthRepository>(); //create one instance for specific hhtp request and reuse it for only that http (dimilar to singlton)
             services.AddScoped<IDatingRepository, DatingRepository>();
             services.AddAutoMapper();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
