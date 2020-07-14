@@ -20,6 +20,6 @@ namespace DatingApp.API.Helpers
                 age--;
             }
             return age;
-        }
+        } 
     }
 }

@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ListsComponent } from './lists/lists.component';
@@ -29,6 +29,7 @@ import {TabsModule} from 'ngx-bootstrap/tabs';
 import { PreventUnsavedGuard } from './_guards/prevent-unsaved.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -53,11 +54,13 @@ export function tokenGetter() {
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      ReactiveFormsModule,
       RouterModule.forRoot(appRoutes),
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
       FileUploadModule,
+      BsDatepickerModule.forRoot(),
       JwtModule.forRoot({
          config: {
             tokenGetter: tokenGetter,
