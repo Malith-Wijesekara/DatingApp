@@ -42,6 +42,7 @@ namespace DatingApp.API
                     opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
             services.AddCors();
+            services.AddScoped<LogUserActivity>();
             services.AddTransient<Seed>();
             services.AddScoped<IAuthRepository, AuthRepository>(); //create one instance for specific hhtp request and reuse it for only that http (dimilar to singlton)
             services.AddScoped<IDatingRepository, DatingRepository>();
