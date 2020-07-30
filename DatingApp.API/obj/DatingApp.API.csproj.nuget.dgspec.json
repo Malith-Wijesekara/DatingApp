@@ -1,30 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Improvement plan\\DatingApp\\DatingApp.API\\DatingApp.API.csproj": {}
+    "D:\\Improvement plan\\DatingApp\\DatingApp.API\\DatingApp.API.csproj": {}
   },
   "projects": {
-    "G:\\Improvement plan\\DatingApp\\DatingApp.API\\DatingApp.API.csproj": {
+    "D:\\Improvement plan\\DatingApp\\DatingApp.API\\DatingApp.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Improvement plan\\DatingApp\\DatingApp.API\\DatingApp.API.csproj",
+        "projectUniqueName": "D:\\Improvement plan\\DatingApp\\DatingApp.API\\DatingApp.API.csproj",
         "projectName": "DatingApp.API",
-        "projectPath": "G:\\Improvement plan\\DatingApp\\DatingApp.API\\DatingApp.API.csproj",
-        "packagesPath": "C:\\Users\\Malith\\.nuget\\packages\\",
-        "outputPath": "G:\\Improvement plan\\DatingApp\\DatingApp.API\\obj\\",
+        "projectPath": "D:\\Improvement plan\\DatingApp\\DatingApp.API\\DatingApp.API.csproj",
+        "packagesPath": "C:\\Users\\malithw\\.nuget\\packages\\",
+        "outputPath": "D:\\Improvement plan\\DatingApp\\DatingApp.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Malith\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\malithw\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,7 +63,6 @@
               "version": "[2.1.0, )"
             },
             "Microsoft.NETCore.App": {
-              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
