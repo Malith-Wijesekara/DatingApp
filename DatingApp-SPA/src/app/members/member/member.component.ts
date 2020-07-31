@@ -13,6 +13,10 @@ import { ActivatedRoute } from '@angular/router';
 export class MemberComponent implements OnInit {
 
   users: User[];
+  user: User = JSON.parse(localStorage.getItem('user'));
+  genderList = [{value: 'male', display: 'Males'}, {value: 'female', display: 'Female'}];
+  userParams: any = {};
+
   pagination: Pagination;
 
   constructor(private alertifyService: AlertifyService,
@@ -25,6 +29,18 @@ export class MemberComponent implements OnInit {
       this.pagination = data['users'].pagination;
       console.log(data);
     });
+
+    this.userParams.gender = this.user.gender === 'female' ? 'male' : 'female';
+    this.userParams.minAge = 18;
+    this.userParams.maxAge = 88;
+    this.userParams.OrderBy = 'lastActive';
+  }
+
+  resetFilter(){
+    this.userParams.gender = this.user.gender === 'female' ? 'male' : 'female';
+    this.userParams.minAge = 18;
+    this.userParams.maxAge = 88;
+    this.loadUsers();
   }
 
   pageChanged(event: any): void {
@@ -33,7 +49,7 @@ export class MemberComponent implements OnInit {
   }
 
   loadUsers() {
-    this.userService.getUsers(this.pagination.currentPage, this.pagination.itemsPerPage).subscribe((res: PaginationResult<User[]>) => {
+    this.userService.getUsers(this.pagination.currentPage, this.pagination.itemsPerPage, this.userParams).subscribe((res: PaginationResult<User[]>) => {
       this.users = res.result;
       this.pagination = res.pagination;
     }, error => {

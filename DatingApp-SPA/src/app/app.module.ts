@@ -31,6 +31,7 @@ import { PhotoEditorComponent } from "./members/photo-editor/photo-editor.compon
 import { FileUploadModule } from "ng2-file-upload";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -62,6 +63,7 @@ export function tokenGetter() {
     FileUploadModule,
     PaginationModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    ButtonsModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
